@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Predicción de Complejidad Algorítmica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Fira Code', monospace;
+            background-color: #1e1e1e;
+            color: #f0f0f0;
+            padding: 2rem;
+            margin: 0;
+        }
+        h1, h2 {
+            color: #00ffc8;
+        }
+        input, textarea, button {
+            font-family: 'Fira Code', monospace;
+            font-size: 1rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+            border: 1px solid #555;
+            background: #2a2a2a;
+            color: #f0f0f0;
+        }
+        button {
+            background-color: #00ffc8;
+            color: #000;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        button:hover {
+            background-color: #00cfa0;
+        }
+        .error {
+            background-color: #2d2d2d;
+            border-left: 4px solid #ff4d4d;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border-radius: 5px;
+        }
+        a {
+            color: #00ffc8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Predicción de Complejidad Algorítmica</h1>
+    <form method="post">
+        <label for="codigo">Pega tu código Python:</label><br>
+        <textarea name="codigo" id="codigo" rows="12" cols="70">{{ codigo or '' }}</textarea><br>
+        <button type="submit">Predecir complejidad</button>
+    </form>
+    <p><a href="/quick">Simular QuickSort RL</a></p>
+    <p><a href="/pilas_colas">Simular Pilas y Colas (RNN)</a></p>
+</body>
+</html>

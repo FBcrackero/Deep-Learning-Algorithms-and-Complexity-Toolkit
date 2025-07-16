@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Árboles Binarios - Red Neuronal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Fira Code', monospace;
+            background-color: #1e1e1e;
+            color: #f0f0f0;
+            padding: 2rem;
+            margin: 0;
+        }
+        h1, h2 {
+            color: #00ffc8;
+        }
+        input, button {
+            font-family: 'Fira Code', monospace;
+            font-size: 1rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+            border: 1px solid #555;
+            background: #2a2a2a;
+            color: #f0f0f0;
+        }
+        button {
+            background-color: #00ffc8;
+            color: #000;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: 1rem;
+        }
+        button:hover {
+            background-color: #00cfa0;
+        }
+        .resultado, .error {
+            background-color: #2d2d2d;
+            border-left: 4px solid #00ffc8;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border-radius: 5px;
+        }
+        .error {
+            border-color: #ff4d4d;
+        }
+        a {
+            color: #00ffc8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .tree {
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .present {
+            color: #00ff00;
+            font-weight: bold;
+        }
+        .absent {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Árboles Binarios - Red Neuronal</h1>
+    <form method="post">
+        <div>
+            <label>Nodos del árbol (separados por coma):</label><br>
+            <input type="text" name="nodos" value="{{ nodos or '' }}" size="40" placeholder="Ej: 5,3,7,1,9,4">
+        </div>
+        <div style="margin-top: 1rem;">
+            <label>Valor a buscar:</label><br>
+            <input type="number" name="valor_buscar" value="{{ valor_buscar or '' }}" min="0" max="50">
+            <button type="submit">Predecir</button>
+        </div>
+    </form>
+    
+    {% if resultado %}
+        <div class="resultado">
+            <h2>Resultados:</h2>
+            <p>
+                <strong>¿El valor {{ valor_buscar }} está en el árbol?</strong> 
+                <span class="{% if resultado.busqueda %}present{% else %}absent{% endif %}">
+                    {{ "SÍ" if resultado.busqueda else "NO" }}
+                </span>
+            </p>
+            
+            <div class="tree">
+                <h3>Recorrido In-Order:</h3>
+                <p>{{ resultado.inorder }}</p>
+            </div>
+            
+            <div class="tree">
+                <h3>Recorrido In-Order (Árbol Balanceado):</h3>
+                <p>{{ resultado.inorder_balanceado }}</p>
+            </div>
+        </div>
+    {% endif %}
+    
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+    
+    <p><a href="/">&#8592; Volver al inicio</a></p>
+</body>
+</html>

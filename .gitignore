@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Modelos entrenados
+*.pth
+*.pt
+
+# Entornos virtuales
+env/
+venv/
+
+# Archivos temporales
+*.log
+*.tmp
+
+
+# Configuración IDE
+.vscode/
+.idea/

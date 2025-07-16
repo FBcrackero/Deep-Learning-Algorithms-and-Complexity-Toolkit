@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pilas y Colas - Red Neuronal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Fira Code', monospace; background: #1e1e1e; color: #f0f0f0; padding: 2rem; }
+        h1 { color: #00ffc8; }
+        input, button { font-family: 'Fira Code', monospace; font-size: 1rem; padding: 0.5rem; border-radius: 4px; border: 1px solid #555; background: #2a2a2a; color: #f0f0f0; }
+        button { background-color: #00ffc8; color: #000; border: none; font-weight: bold; cursor: pointer; margin-left: 1rem; }
+        button:hover { background-color: #00cfa0; }
+        .resultado, .error { background-color: #2d2d2d; border-left: 4px solid #00ffc8; padding: 1rem; margin-top: 1.5rem; border-radius: 5px; }
+        .error { border-color: #ff4d4d; }
+        a { color: #00ffc8; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Pilas y Colas - Red Neuronal</h1>
+    <form method="post">
+        <label>Secuencia (ej: 0,3;2,7;1,0;3,0):</label>
+        <input type="text" name="secuencia" value="{{ secuencia or '' }}" size="50">
+        <button type="submit">Predecir</button>
+    </form>
+    {% if resultado %}
+        <div class="resultado">
+            <p><strong>Pops:</strong> {{ resultado.pops }}</p>
+            <p><strong>Stack final:</strong> {{ resultado.stack }}</p>
+            <p><strong>Queue final:</strong> {{ resultado.queue }}</p>
+        </div>
+    {% endif %}
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+    <p><a href="/">&#8592; Volver al inicio</a></p>
+</body>
+</html>
