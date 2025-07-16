@@ -1,4 +1,4 @@
-# Proyecto Algoritmos
+# Red Neuronal Sobre Ordenamiento de listas, pilas y colas, y predicción de complejidad algoritimica. 
 
 Este repositorio contiene implementaciones y simulaciones de algoritmos clásicos usando Python y aprendizaje automático. Incluye módulos para:
 
